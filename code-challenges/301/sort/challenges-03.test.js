@@ -8,7 +8,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 
 const sortBackwards = (arr) => {
   // Solution code here...
-  return arr.sort().reverse();
+  return arr.sort((a,b) => b - a);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,9 +20,16 @@ In this alphabetization, capital letters come before lower case letters.
 
 For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
+let wordCompare = (a,b) => {
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+}
+
 
 const alphabetize = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => wordCompare(a,b));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,6 +40,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => a.length - b.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +53,11 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => {
+    if (a.toLowerCase() > b.toLowerCase()) return 1;
+    if (a.toLowerCase() < b.toLowerCase()) return -1;
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,6 +75,7 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => a.price - b.price);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,6 +88,7 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => a.toString().length - b.toString().length);
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -96,6 +111,7 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) => wordCompare(a.lastName, b.lastName));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,6 +126,13 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => {
+    if (a.lastName === b.lastName) {
+      if (a.firstName === b.firstName) return a.age - b.age;
+      return wordCompare(a.firstName, b.firstName)
+    }
+    return wordCompare(a.lastName, b.lastName);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,8 +157,18 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
+// used by challenges 9 and 10
+const weekDays = {
+  'Monday' : 1,
+  'Tuesday' : 2,
+  'Wednesday' : 3,
+  'Thursday' : 4,
+  'Friday' : 5
+};
+
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => weekDays[a.dayOfWeek] - weekDays[b.dayOfWeek]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -150,6 +183,24 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => {
+    // same day
+    if (a.dayOfWeek === b.dayOfWeek) {
+      // same start time meetings
+      if (a.start === b.start) {
+        // if a ends earlier than b
+        if (a.end < b.end) return -1;
+        // a ends later than b or same length
+        return 1;
+      }
+      // if a starts earlier than b
+      if (a.start < b.start) return -1;
+      // a starts later than b
+      return 1;
+    }
+    // sort by week day
+    return weekDays[a.dayOfWeek] - weekDays[b.dayOfWeek];
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
