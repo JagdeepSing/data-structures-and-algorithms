@@ -102,13 +102,15 @@ hasChildrenValues(characters, 'Eddard') will return true
 
 const hasChildrenValues = (arr, character) => {
     // Solution code here...
-    for (let i=0; i<arr.length; i++) {
-        if (arr[i].name == character) {
-            let values = Object.values(arr[i]);
-            return values[2].length != 0;
+    let children = 0;
+    Object.entries(arr).forEach(item => {
+      item.forEach(person => {
+        if (person.name === character) {
+          children = person.children.length;
         }
-    }
-    return false;
+      });
+    });
+    return children;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -172,14 +174,15 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 const houseSurvivors = (arr) => {
     const survivors = [];
     // Solution code here...
-    // Solution code here...
-    for(let i=0; i<arr.length; i++) {
-        let size = arr[i].children.length + 1;
-        let hasSpouse = arr[i].spouse != null;
-        let spouseAlive = deceasedSpouses.indexOf(arr[i].spouse) == -1;
-        ((hasSpouse && spouseAlive) ? size++ : '');
-        survivors.push({ house: arr[i].house, members: size });
-    }
+
+    Object.values(arr).forEach(person => {
+      let sum = 1;
+      if (person.spouse && !deceasedSpouses.includes(person.spouse)) sum++;
+      survivors.push({
+        'house': person.house,
+        'members': sum + person.children.length
+      });
+    });
     return survivors;
 }
 
