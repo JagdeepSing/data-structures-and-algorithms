@@ -74,7 +74,7 @@ const findTagNames = (elements) => {
   // Solution code here...
   let result = [];
   elements.forEach((element => {
-    result = result.concat(element.match(/(?<=<)\/[a-z]+(?=>)/gi) || []);
+    result = result.concat(element.match(/(?<=<)\/[a-z0-9]+(?=>)/gi) || []);
   }));
   return result;
 };
