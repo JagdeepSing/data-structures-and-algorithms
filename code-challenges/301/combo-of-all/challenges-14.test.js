@@ -146,11 +146,20 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
-  // return checkRows(board) || checkColumns(board) || checkDiagonal(board);
+
+  for (let i = 0; i < board.length; i++) {
+    if (tripleMatch([board[i][0], board[i][1], board[i][2]]) ||
+        tripleMatch([board[0][i], board[1][i], board[2][i]])) {
+      return true;
+    }
+  }
+
+  return tripleMatch([board[0][0], board[1][1], board[2][2]]) || tripleMatch([board[0][2], board[1][1], board[2][0]]);
 };
 
-function tripelMatch(values) {
-  return (values.length !== 3) ? false : (values[0] === values[1] && values[1] === values[2]);
+function tripleMatch(values) {
+  if (values.includes('')) return false;
+  return (values[0] === values[1]) && (values[1] === values[2]);
 }
 
 /* ------------------------------------------------------------------------------------------------
