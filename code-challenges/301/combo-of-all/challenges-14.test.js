@@ -153,10 +153,11 @@ const detectTicTacToeWin = (board) => {
       return true;
     }
   }
-
-  return tripleMatch([board[0][0], board[1][1], board[2][2]]) || tripleMatch([board[0][2], board[1][1], board[2][0]]);
+  return tripleMatch([board[0][0], board[1][1], board[2][2]]) ||
+         tripleMatch([board[0][2], board[1][1], board[2][0]]);
 };
 
+// checks if three values in an array are the same
 function tripleMatch(values) {
   if (values.includes('')) return false;
   return (values[0] === values[1]) && (values[1] === values[2]);
