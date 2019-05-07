@@ -1,2 +1,3 @@
 # data-structures-and-algorithms
-Used for coding practice, focus on data structures and algorithms in JavaScript
+
+data structures and algorithms practice, written in JavaScript
