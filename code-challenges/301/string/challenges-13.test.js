@@ -133,18 +133,7 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 const sortByDay = (arr) => {
   // Solution code here...
-  let sortedEvents = [];
-  daysOfWeek.forEach((day, idx) => {
-    let eventsOnDay = [];
-    arr.forEach((event) => {
-      if (event.includes(day)) {
-        eventsOnDay.push(event);
-      }
-    });
-    sortedEvents.push(eventsOnDay);
-  });
-  return sortedEvents;
-
+  return daysOfWeek.map((day) => arr.filter((event) => event.includes(day)));
 };
 
 /* ------------------------------------------------------------------------------------------------
