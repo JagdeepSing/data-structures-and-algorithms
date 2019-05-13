@@ -14,4 +14,4 @@ It runs in O(n) time and O(1) space, which is the best possible solution for thi
 
 ## Solution
 
-[whiteboard image](./assets/arrayReverse-whiteboard.jpg)
+[whiteboard image](./assets/array_reverse.jpg)
