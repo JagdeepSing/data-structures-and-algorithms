@@ -1,5 +1,7 @@
 'use strict';
 
+module.exports = exports = reverseArray;
+
 /**
  * In-place reverses the order of elements in specified array.
  * Returns null if invalid array parameter
@@ -8,7 +10,7 @@
  */
 function reverseArray(arr) {
   // if passed in variable arr is not an array
-  if (!arr.isArray()) return null;
+  if (!Array.isArray(arr)) return null;
   // if passed in arr is of length 0 or 1, it is already reversed.
   if (arr.length <= 1) return arr;
 
