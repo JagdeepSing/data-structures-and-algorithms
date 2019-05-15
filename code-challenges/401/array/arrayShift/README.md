@@ -7,22 +7,21 @@ Write a function called `insertShiftArray` which takes in an array and the value
 
 Choose an in-place algorithm for both best possible time and space efficiency. Achieved a solution with O(n) time and O(1) memory usage.
 
+## Solution
+
+[Whiteboard Image](assets/array_shift.jpeg)
+
 ~~~~
 function insertShiftArray(arr, item) {
-  // if passed in variable arr is not an array
   if (typeof item === 'undefined') throw new TypeError;
   if (!Array.isArray(arr)) throw new TypeError;
   if (arr.length === 0) return [item];
 
-  for (let i = arr.length; i > Math.ceil(arr.length / 2); i--) {
+  for (let i = arr.length; i > Math.floor(arr.length / 2); i--) {
     arr[i] = arr[i - 1];
   }
-  arr[Math.ceil(arr.length / 2)] = item;
+  arr[Math.floor(arr.length / 2)] = item;
 
   return arr;
 }
 ~~~~
-
-## Solution
-
-[Whiteboard Image]()
