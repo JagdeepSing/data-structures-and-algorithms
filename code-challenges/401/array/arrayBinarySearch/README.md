@@ -23,6 +23,23 @@ This approach has
 
 ## Solution
 
-```
+[Whiteboarding]('./assets/array_binary_search.jpg')
 
+```
+function search(arr, val, left, right) {
+  if (right - left < 0) {
+    return -1;
+  }
+  let middle = Math.floor((left + right) / 2);
+
+  if (arr[middle] === val) {
+    return middle;
+  } else if (arr[middle] > val) {
+    // check left side of middle
+    return search(arr, val, left, middle - 1);
+  } else {
+    // check right side of middle
+    return search(arr, val, middle + 1, right);
+  }
+}
 ```
