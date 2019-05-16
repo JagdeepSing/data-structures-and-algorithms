@@ -37,5 +37,6 @@ This repo stores all data structure and algorithm challenges completed while att
 
 ### Array
 
-  * [Array Reverse](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/master/code-challenges/401/array/arrayReverse)
-  * [Array Shift](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/master/code-challenges/401/array/arrayShift)
+  * [Reverse](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/master/code-challenges/401/array/arrayReverse/array-reverse.js)
+  * [Shift](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/master/code-challenges/401/array/arrayShift)
+  * [Binary Search](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/master/code-challenges/401/array/arrayBinarySearch)
