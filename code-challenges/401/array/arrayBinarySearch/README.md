@@ -23,7 +23,7 @@ This approach has
 
 ## Solution
 
-![Whiteboarding](./assets/array_binary_search.jpg)
+![Whiteboarding](./assets/array_binary_search.jpeg)
 
 ```
 function search(arr, val, left, right) {
