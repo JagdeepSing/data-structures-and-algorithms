@@ -9,7 +9,7 @@ Choose an in-place algorithm for both best possible time and space efficiency. A
 
 ## Solution
 
-[Whiteboard Image](assets/array_shift.jpeg)
+![Whiteboard Image](assets/array_shift.jpeg)
 
 ~~~~
 function insertShiftArray(arr, item) {
