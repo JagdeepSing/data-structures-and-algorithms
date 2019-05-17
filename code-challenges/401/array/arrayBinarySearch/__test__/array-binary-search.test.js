@@ -28,14 +28,10 @@ describe('array binary search expected output', () => {
 
 describe('array binary search expected failure', () => {
   it('missing parameters', () => {
-    
     expect(() => { arrayBinarySearch(); }).toThrow(TypeError);
     expect(() => { arrayBinarySearch([]); }).toThrow(TypeError);
     expect(arrayBinarySearch([], 0)).toEqual(-1);
     expect(arrayBinarySearch([1], 1)).toEqual(0);
     expect(arrayBinarySearch([1], 3)).toEqual(-1);
-
-
-
   });
 });

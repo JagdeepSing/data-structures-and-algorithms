@@ -4,27 +4,27 @@ This repo stores all data structure and algorithm challenges completed while att
 
 ## Course 301 Challenges
 
-### Array
+#### Array
 
   * [Filter](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/arrayFilter/challenges-08.test.js)
   * [Map](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/arrayMap/challenges-07.test.js)
   * [Reduce](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/arrayReduce/challenges-09.test.js)
 
-### Object
+#### Object
 
   * [Objects](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/Objects/challenges-06.test.js)
 
-### String
+#### String
 
   * [.slice(), .splice(), .split(), .join()](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/string/challenges-05.test.js)
   * [.includes(), .every(), .charAt()](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/string/challenges-13.test.js)
 
-### Regular Expressions
+#### Regular Expressions
 
   * [Regex 1](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/regex/challenges-04.test.js)
   * [Regex 2](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/regex/challenges-11.test.js)
 
-### Other
+#### Other
 
   * [Value vs Reference](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/value-vs-reference/challenges-02.test.js)
   * [Chaining](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/chaining/challenges-10.test.js)
@@ -33,10 +33,16 @@ This repo stores all data structure and algorithm challenges completed while att
   * [Sorting](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/sort/challenges-03.test.js)
   * [Combination of Everything](https://github.com/JagdeepSing/data-structures-and-algorithms/blob/master/code-challenges/301/combo-of-all/challenges-14.test.js)
 
-## Course 401 Challenges
+## Course 401 
 
-### Array
+### Challenges
+
+#### Array
 
   * [Reverse](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/master/code-challenges/401/array/arrayReverse/array-reverse.js)
   * [Shift](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/array_binary_search/code-challenges/401/array/arrayShift)
   * [Binary Search](https://github.com/JagdeepSing/data-structures-and-algorithms/tree/array_binary_search/code-challenges/401/array/arrayBinarySearch)
+
+### Data Structure Implementations
+
+  * [Singly Linked List]('./data-structures/linkedList')
