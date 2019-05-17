@@ -45,4 +45,4 @@ This repo stores all data structure and algorithm challenges completed while att
 
 ### Data Structure Implementations
 
-  * [Singly Linked List]('./data-structures/linkedList')
+  * [Singly Linked List](/data-structures/linkedList)
