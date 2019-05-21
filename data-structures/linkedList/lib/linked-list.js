@@ -158,7 +158,7 @@ class LinkedList {
   }
 
   kFromTheEnd(k) {
-    if (k > this.length - 1 || k < 0) {
+    if (typeof k !== 'number' || k > this.length - 1 || k < 0) {
       throw 'Exception';
     }
     if (k === 0) { return this.tail.value; }
