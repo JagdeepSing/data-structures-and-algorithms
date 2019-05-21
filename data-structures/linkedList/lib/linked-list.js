@@ -82,7 +82,7 @@ class LinkedList {
    */
   append(value) {
     if (value || value === 0) {
-      if (!this.head) {
+      if (!this.head && !this.tail) {
         this.head = new Node(value, null);
         this.tail = this.head;
       } else {
@@ -155,6 +155,20 @@ class LinkedList {
       throw 'Exception';
     }
     throw 'Invalid Input';
+  }
+
+  kFromTheEnd(k) {
+    if (k > this.length - 1 || k < 0) {
+      throw 'Exception';
+    }
+    if (k === 0) { return this.tail.value; }
+    let current = this.head;
+    let i = this.length - k - 1;
+    while (i > 0) {
+      current = current.next;
+      i -= 1;
+    }
+    return current.value;
   }
 }
 

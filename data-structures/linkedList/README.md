@@ -91,3 +91,6 @@ Create a LinkedList class, with methods:
 
 ### Insertions
 ![Insertions Whiteboard](./assets/insertions.jpeg)
+
+### K<sup>th</sup> From End
+![Kth From The End](./assets/k-from-end.jpeg)
