@@ -157,6 +157,12 @@ class LinkedList {
     throw 'Invalid Input';
   }
 
+  /**
+   * Get kth value from the end of the linked list
+   * 
+   * @param {integer} k 
+   * @throws {String} if kth value doesn't exist or k isn't a number
+   */
   kFromTheEnd(k) {
     if (typeof k !== 'number' || k > this.length - 1 || k < 0) {
       throw 'Exception';
