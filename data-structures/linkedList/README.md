@@ -21,6 +21,7 @@ Create a LinkedList class, with methods:
 
     return an array containing all the `Node` values in the list
 
+Add insertion methods
 * `.append(value)`
 
     add value to the end of the list
@@ -32,9 +33,18 @@ Create a LinkedList class, with methods:
 * `.insertAfter(value, newVal)`
 
     add newVal after value, exception if value doesn't exist
-    
+
+Add kFromTheEnd method
+
+* `.kFromTheEnd(k)`
+
+    return the kth node from the end of the linked list
+
+    if kth node doesn't exist, throw exception
 
 ## Approach & Efficiency
+
+Setup of linked list, base methods
 
 * `insert(value)`: 
 
@@ -48,6 +58,7 @@ Create a LinkedList class, with methods:
 
     O(n) time complexity, loop through all nodes in list and insert values into an array, return array at the end.
 
+Insertion Methods
 * `.append(value)`:
 
     O(1) time complexity, use tail pointer
@@ -59,6 +70,13 @@ Create a LinkedList class, with methods:
 * `.insertAfter(value, newVal)`:
 
     O(n) time complexity, worst case is we have to traverse entire list to look for value
+
+K<sup>th</sup> node value from end of list
+* `.kFromTheEnd(k)`
+
+    O(n) time complexity, singly linked list so if k=1, have to go through all but one node of list.
+    
+    O(1) space complexity, same number of variables defined of same size no matter the input size
 
 ## API
 <!-- Description of each method publicly available to your Linked List -->
@@ -87,7 +105,16 @@ Create a LinkedList class, with methods:
 
     add newVal after value, exception if value doesn't exist
 
+* `.kFromTheEnd(k)`
+
+    return the kth node from the end of the linked list
+
+    if kth node doesn't exist, throw exception
+
 ## Whiteboard
 
 ### Insertions
 ![Insertions Whiteboard](./assets/insertions.jpeg)
+
+### K<sup>th</sup> From End
+![Kth From The End](./assets/k-from-end.jpeg)

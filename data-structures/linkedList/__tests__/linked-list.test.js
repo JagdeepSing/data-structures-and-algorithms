@@ -2,7 +2,7 @@
 
 const LinkedList = require('../lib/linked-list.js');
 
-describe('Linked List behaves correctly', () => {
+describe('Linked List creation and insertion behaves correctly', () => {
 
   it('instantiate an empty linked list', () => {
     let list = new LinkedList();
@@ -10,29 +10,6 @@ describe('Linked List behaves correctly', () => {
     expect(list.head).toEqual(null);
     expect(list.tail).toEqual(null);
     expect(list.length).toEqual(0);
-  });
-
-  it('properly insert into the linked list', () => {
-    let list = new LinkedList();
-    list.insert(1);
-
-    expect(list.head.value).toEqual(1);
-    expect(list.tail.value).toEqual(1);
-    expect(list.length).toEqual(1);
-
-    list.insert(2);
-    list.insert(3);
-    list.insert(4);
-
-    expect(list.head.value).toEqual(1);
-    expect(list.head.next.value).toEqual(2);
-    expect(list.head.next.next.value).toEqual(3);
-    expect(list.head.next.next.next.value).toEqual(4);
-
-    expect(list.tail.value).toEqual(4);
-    expect(list.tail.next).toEqual(null);
-
-    expect(list.length).toEqual(4);
   });
 
   it('head property points to the first node in the linked list', () => {
@@ -69,6 +46,31 @@ describe('Linked List behaves correctly', () => {
     expect(list[1]).toEqual(2);
     expect(list[2]).toEqual(3);
 
+  });
+});
+
+describe('Linked List insertions behave correctly', () => {
+  it('.insert(value) properly inserts into the linked list', () => {
+    let list = new LinkedList();
+    list.insert(1);
+
+    expect(list.head.value).toEqual(1);
+    expect(list.tail.value).toEqual(1);
+    expect(list.length).toEqual(1);
+
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+
+    expect(list.head.value).toEqual(1);
+    expect(list.head.next.value).toEqual(2);
+    expect(list.head.next.next.value).toEqual(3);
+    expect(list.head.next.next.next.value).toEqual(4);
+
+    expect(list.tail.value).toEqual(4);
+    expect(list.tail.next).toEqual(null);
+
+    expect(list.length).toEqual(4);
   });
 
   it('.append(value) adds value to end of linked list', () => {
@@ -125,5 +127,40 @@ describe('Linked List behaves correctly', () => {
     let list = new LinkedList();
     expect(() => list.insertAfter(2, 4)).toThrow();
     expect(() => list.insertAfter()).toThrow();
+  });
+
+  it('.kFromTheEnd(k) properly returns kth value from end or throws exception if kth value from end doesn\'t exist', () => {
+    let list = new LinkedList();
+
+    // empty list, any value should throw error
+    expect(() => list.kFromTheEnd(0)).toThrow();
+    expect(() => list.kFromTheEnd(3)).toThrow();
+    expect(() => list.kFromTheEnd(-1)).toThrow();
+
+    list.append(5);
+
+    // list with one node
+    expect(list.kFromTheEnd(0)).toEqual(5);
+    expect(() => list.kFromTheEnd(1)).toThrow();
+    expect(() => list.kFromTheEnd(-2)).toThrow();
+
+    list.append(7);
+
+    // list with two nodes
+    expect(list.kFromTheEnd(0)).toEqual(7);
+    expect(list.kFromTheEnd(1)).toEqual(5);
+    expect(() => list.kFromTheEnd(4)).toThrow();
+    expect(() => list.kFromTheEnd(-3)).toThrow();
+
+
+    list.append(3);
+    list.append(10);
+
+    expect(list.kFromTheEnd(0)).toEqual(10);
+    expect(list.kFromTheEnd(1)).toEqual(3);
+    expect(list.kFromTheEnd(2)).toEqual(7);
+    expect(list.kFromTheEnd(3)).toEqual(5);
+    expect(() => list.kFromTheEnd(6)).toThrow();
+    expect(() => list.kFromTheEnd(-4)).toThrow();
   });
 });
