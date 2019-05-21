@@ -109,6 +109,7 @@ class LinkedList {
       if (this.head.value === value) {
         newNode.next = this.head;
         this.head = newNode;
+        this.length++;
         return;
       }
 
@@ -117,6 +118,7 @@ class LinkedList {
         if (current.next && current.next.value === value) {
           newNode.next = current.next;
           current.next = newNode;
+          this.length++;
           return;
         } else {
           current = current.next;
@@ -144,6 +146,7 @@ class LinkedList {
           if (current === this.tail) {
             this.tail = newNode;
           }
+          this.length++;
           return;
         } else {
           current = current.next;
