@@ -70,4 +70,60 @@ describe('Linked List behaves correctly', () => {
     expect(list[2]).toEqual(3);
 
   });
+
+  it('.append(value) adds value to end of linked list', () => {
+    let list = new LinkedList();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+
+    expect(list.head.value).toEqual(1);
+    expect(list.head.next.value).toEqual(2);
+    expect(list.head.next.next.value).toEqual(3);
+    expect(list.length).toEqual(3);
+
+    // expect(list.append()).toThrow();
+  });
+
+  it('.insertBefore(value, newVal) adds newValue before value', () => {
+    let list = new LinkedList();
+    list.append(1);
+    // list: 1 -> null
+    list.insertBefore(1, 2);
+    // list: 2 -> 1 -> null
+    list.insertBefore(2, 3);
+    // list should be 3 -> 2 -> 1 -> null
+
+    expect(list.head.value).toEqual(3);
+    expect(list.head.next.value).toEqual(2);
+    expect(list.head.next.next.value).toEqual(1);
+
+    // expect(list.insertBefore()).toThrow();
+  });
+
+  it('.insertBefore(value, newVal) outputs exception if value not in list', () => {
+    let list = new LinkedList();
+    expect(() => list.insertBefore(2, 4)).toThrow();
+    expect(() => list.insertBefore()).toThrow();
+  });
+
+  it('.insertAfter(value, newVal) adds newValue after value', () => {
+    let list = new LinkedList();
+    list.append(1);
+    // list: 1 -> null
+    list.insertAfter(1, 2);
+    // list: 1 -> 2 -> null
+    list.insertAfter(2, 3);
+    // list should be 1 -> 2 -> 3 -> null
+
+    expect(list.head.value).toEqual(1);
+    expect(list.head.next.value).toEqual(2);
+    expect(list.head.next.next.value).toEqual(3);
+  });
+
+  it('.insertAfter(value, newVal) outputs exception if value not in list', () => {
+    let list = new LinkedList();
+    expect(() => list.insertAfter(2, 4)).toThrow();
+    expect(() => list.insertAfter()).toThrow();
+  });
 });

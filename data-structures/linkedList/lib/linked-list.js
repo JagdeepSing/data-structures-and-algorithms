@@ -1,17 +1,6 @@
 'use strict';
 
-class Node {
-  /**
-   * Create a Node
-   *
-   * @param {*} value
-   * @param {*} next
-   */
-  constructor(value = null, next = null) {
-    this.value = value;
-    this.next = next;
-  }
-}
+const Node = require('./node.js');
 
 class LinkedList {
   /**
@@ -31,7 +20,7 @@ class LinkedList {
    */
   insert(value) {
     try {
-      if (!this.head) {
+      if (!this.head && !this.tail) {
         this.head = new Node(value, null);
         this.tail = this.head;
       } else {
@@ -85,6 +74,84 @@ class LinkedList {
     } catch(err) {
       throw new Error('Error printing values of list.');
     }
+  }
+
+  /**
+   * Add new node with the given value to the end of the list
+   * @param {*} value 
+   */
+  append(value) {
+    if (value || value === 0) {
+      if (!this.head) {
+        this.head = new Node(value, null);
+        this.tail = this.head;
+      } else {
+        this.tail.next = new Node(value, null);
+        this.tail = this.tail.next;
+      }
+      this.length++;
+    } else {
+      throw ('Invalid Input');
+    }
+  }
+
+  /**
+   * Add newVal before value in list. if value not in list, throw exception
+   * 
+   * @param {*} value 
+   * @param {*} newVal 
+   */
+  insertBefore(value, newVal) {
+    if (value || value === 0) {
+      let newNode = new Node(newVal);
+
+      // // if value is head value
+      if (this.head.value === value) {
+        newNode.next = this.head;
+        this.head = newNode;
+        return;
+      }
+
+      let current = this.head;
+      while (current !== null) {
+        if (current.next && current.next.value === value) {
+          newNode.next = current.next;
+          current.next = newNode;
+          return;
+        } else {
+          current = current.next;
+        }
+      }
+      throw 'Exception';
+    }
+    throw 'Invalid Input';
+  }
+
+  /**
+   * Add newVal after value in list. If value doesn't exist, throw exception
+   * 
+   * @param {*} value 
+   * @param {*} newVal 
+   */
+  insertAfter(value, newVal) {
+    if (value || value === 0) {
+      let current = this.head;
+
+      while (current != null) {
+        if (current.value === value) {
+          let newNode = new Node(newVal, current.next);
+          current.next = newNode;
+          if (current === this.tail) {
+            this.tail = newNode;
+          }
+          return;
+        } else {
+          current = current.next;
+        }
+      }
+      throw 'Exception';
+    }
+    throw 'Invalid Input';
   }
 }
 
