@@ -21,6 +21,19 @@ Create a LinkedList class, with methods:
 
     return an array containing all the `Node` values in the list
 
+* `.append(value)`
+
+    add value to the end of the list
+
+* `.insertBefore(value, newVal)`
+
+    add newVal before value, exception if value doesn't exist
+
+* `.insertAfter(value, newVal)`
+
+    add newVal after value, exception if value doesn't exist
+    
+
 ## Approach & Efficiency
 
 * `insert(value)`: 
@@ -34,6 +47,18 @@ Create a LinkedList class, with methods:
 * `print()`:
 
     O(n) time complexity, loop through all nodes in list and insert values into an array, return array at the end.
+
+* `.append(value)`:
+
+    O(1) time complexity, use tail pointer
+
+* `.insertBefore(value, newVal)`:
+
+    O(n) time complexity, worst case is we have to traverse entire list to look for value
+
+* `.insertAfter(value, newVal)`:
+
+    O(n) time complexity, worst case is we have to traverse entire list to look for value
 
 ## API
 <!-- Description of each method publicly available to your Linked List -->
@@ -49,3 +74,15 @@ Create a LinkedList class, with methods:
 * `.print()`
 
     returns the node values contained in the list as an array
+
+* `.append(value)`
+
+    add value to the end of the list
+
+* `.insertBefore(value, newVal)`
+
+    add newVal before value, exception if value doesn't exist
+
+* `.insertAfter(value, newVal)`
+
+    add newVal after value, exception if value doesn't exist
