@@ -86,3 +86,8 @@ Create a LinkedList class, with methods:
 * `.insertAfter(value, newVal)`
 
     add newVal after value, exception if value doesn't exist
+
+## Whiteboard
+
+### Insertions
+![Insertions Whiteboard](./assets/insertions.jpeg)
