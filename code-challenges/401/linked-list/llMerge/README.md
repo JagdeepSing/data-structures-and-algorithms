@@ -15,6 +15,8 @@ Space: O(1)
 
 ## Solution
 
+Whiteboard Image:
+
 ![Whiteboard Image](./assets/linked-list-merge.jpg)
 
 ~~~~javascript
