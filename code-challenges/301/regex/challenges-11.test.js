@@ -32,7 +32,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
-  return (/^[a-z0-9]+(.)?[a-z0-9]+@[a-z]+.(net|com|org)$/gi).test(email);
+  return /^[a-z0-9]+(.)?[a-z0-9]+@[a-z]+.(net|com|org)$/gi.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,7 +58,7 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
-  return (/^(\(\d{3}\)|\d{3})( |-)?\d{3}( |-)?\d{4}$/g).test(phoneNumber);
+  return /^(\(\d{3}\)|\d{3})( |-)?\d{3}( |-)?\d{4}$/g.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,8 +72,7 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = (elements) => {
   // Solution code here...
-  return elements.reduce((result, element) => 
-        result.concat(element.match(/(?<=<)\/[a-z0-9]+(?=>)/gi) || []), []);
+  return elements.reduce((result, element) => result.concat(element.match(/(?<=<)\/[a-z0-9]+(?=>)/gi) || []), []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,9 +154,13 @@ describe('Testing challenge 3', () => {
 
 describe('Testing challenge 4', () => {
   test('It should return the closing tags', () => {
-    expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/p' ]);
+    expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/p']);
   });
   test('It should work if there are multiple closing tags in a single string', () => {
-    expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/div', '/p' ]);
+    expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual([
+      '/h1',
+      '/div',
+      '/p',
+    ]);
   });
 });

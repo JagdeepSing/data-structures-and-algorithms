@@ -20,7 +20,7 @@ const howMuchPencil = (str) => {
     result.push(str);
     str = str.slice(1);
   }
-  result.push("");
+  result.push('');
   return result;
 };
 
@@ -34,9 +34,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
-  return arr.split("");
+  return arr.split('');
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -75,23 +74,22 @@ const gruffaloCrumble = {
     'Fold together remaining ingredients to make the crisp',
     'Spread the crisp evenly over the gruffalo mixture',
     'Bake for 12-15 hours',
-  ]
-}
-
+  ],
+};
 
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  recipe.ingredients.forEach( (ingredient) => {
+  recipe.ingredients.forEach((ingredient) => {
     // removes the first two words (amount and unit) from string
     for (let i = 0; i < 2; i++) {
-      let indexOfSpace = ingredient.indexOf(" ");
-      ingredient = ingredient.slice(indexOfSpace+1);
+      let indexOfSpace = ingredient.indexOf(' ');
+      ingredient = ingredient.slice(indexOfSpace + 1);
     }
     result.push(ingredient);
   });
   return result;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -104,14 +102,19 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  recipe.ingredients.forEach( (ingredient) => {
+  recipe.ingredients.forEach((ingredient) => {
     // split string into array of words
     // slice the first 2 values from the array
     // join the array back with a space inbetween the values
-    result.push(ingredient.split(" ").slice(2).join(" "));
+    result.push(
+      ingredient
+        .split(' ')
+        .slice(2)
+        .join(' ')
+    );
   });
   return result;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -126,11 +129,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
-  recipe.steps.forEach( (step) => {
-    result.push(step.slice(0, step.indexOf(" ")));
+  recipe.steps.forEach((step) => {
+    result.push(step.slice(0, step.indexOf(' ')));
   });
   return result;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -173,14 +176,13 @@ removeLastCharacters('Gregor', 9) returns ''
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
   if (str.length <= numberOfCharacters) {
-    return "";
+    return '';
   } else if (numberOfCharacters <= 0) {
     return str;
   } else {
     return str.slice(0, str.length - numberOfCharacters);
   }
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -191,14 +193,13 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
   let total = 0;
   // Solution code here...
-  let numbers = str.split(",");
-  numbers.forEach( (numStr) => {
+  let numbers = str.split(',');
+  numbers.forEach((numStr) => {
     let num = Number(numStr);
     if (!isNaN(num)) total += num;
   });
   return total;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -259,20 +260,54 @@ describe('Testing challenge 2', () => {
 
 describe('Testing challenge 3', () => {
   test('It should return a list of foods', () => {
-    expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+    expect(listFoods(gruffaloCrumble)).toStrictEqual([
+      'Gruffalo',
+      'oats',
+      'brown sugar',
+      'flour',
+      'pure maple syrup',
+      'chopped nuts',
+      'baking soda',
+      'baking powder',
+      'cinnamon',
+      'melted butter',
+      'fresh water',
+    ]);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
   });
 });
 
 describe('Testing challenge 4', () => {
   test('It should return a list of foods', () => {
-    expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+    expect(splitFoods(gruffaloCrumble)).toStrictEqual([
+      'Gruffalo',
+      'oats',
+      'brown sugar',
+      'flour',
+      'pure maple syrup',
+      'chopped nuts',
+      'baking soda',
+      'baking powder',
+      'cinnamon',
+      'melted butter',
+      'fresh water',
+    ]);
   });
 });
 
 describe('Testing challenge 5', () => {
   test('It should return a list of recipe steps', () => {
-    expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
+    expect(stepActions(gruffaloCrumble)).toStrictEqual([
+      'Pre-heat',
+      'De-prickle',
+      'Sprinkle',
+      'Mix',
+      'Grease',
+      'Combine',
+      'Fold',
+      'Spread',
+      'Bake',
+    ]);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
   });
 });
@@ -282,7 +317,7 @@ describe('Testing challenge 6', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
     expect(list).toStrictEqual([1, 3, 5]);
-    
+
     list = [6, 3, 19, 43, 12, 66, 43];
     removeEvenValues(list);
     expect(list).toStrictEqual([3, 19, 43, 43]);
@@ -326,7 +361,7 @@ describe('Testing challenge 10', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
-    
+
     expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'euioo']);
   });
 });

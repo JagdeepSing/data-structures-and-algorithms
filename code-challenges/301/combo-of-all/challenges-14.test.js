@@ -10,7 +10,7 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
-  return arr.map(word => word.replace(word.charAt(0), word.charAt(0).toUpperCase()));
+  return arr.map((word) => word.replace(word.charAt(0), word.charAt(0).toUpperCase()));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -23,70 +23,75 @@ The names should be combined into a single string with each character name separ
 For example, "Lando Calrisian - Boba Fett - Princess Amidala".
 ------------------------------------------------------------------------------------------------ */
 
-let starWarsData = [{
-  name: 'Luke Skywalker',
-  height: '172',
-  mass: '77',
-  hair_color: 'blond',
-  skin_color: 'fair',
-  eye_color: 'blue',
-  birth_year: '19BBY',
-  gender: 'male',
-},
-{
-  name: 'C-3PO',
-  height: '167',
-  mass: '75',
-  hair_color: 'n/a',
-  skin_color: 'gold',
-  eye_color: 'yellow',
-  birth_year: '112BBY',
-  gender: 'n/a'
-},
-{
-  name: 'R2-D2',
-  height: '96',
-  mass: '32',
-  hair_color: 'n/a',
-  skin_color: 'white, blue',
-  eye_color: 'red',
-  birth_year: '33BBY',
-  gender: 'n/a'
-},
-{
-  name: 'Darth Vader',
-  height: '202',
-  mass: '136',
-  hair_color: 'none',
-  skin_color: 'white',
-  eye_color: 'yellow',
-  birth_year: '41.9BBY',
-  gender: 'male'
-},
-{
-  name: 'Leia Organa',
-  height: '150',
-  mass: '49',
-  hair_color: 'brown',
-  skin_color: 'light',
-  eye_color: 'brown',
-  birth_year: '19BBY',
-  gender: 'female'
-},
-{
-  name: 'Pex Kylar',
-  height: '180',
-  mass: '190',
-  hair_color: 'orange',
-  skin_color: 'brown',
-  eye_color: 'none',
-  birth_year: '27BBY',
-  gender: 'n/a'
-}];
+let starWarsData = [
+  {
+    name: 'Luke Skywalker',
+    height: '172',
+    mass: '77',
+    hair_color: 'blond',
+    skin_color: 'fair',
+    eye_color: 'blue',
+    birth_year: '19BBY',
+    gender: 'male',
+  },
+  {
+    name: 'C-3PO',
+    height: '167',
+    mass: '75',
+    hair_color: 'n/a',
+    skin_color: 'gold',
+    eye_color: 'yellow',
+    birth_year: '112BBY',
+    gender: 'n/a',
+  },
+  {
+    name: 'R2-D2',
+    height: '96',
+    mass: '32',
+    hair_color: 'n/a',
+    skin_color: 'white, blue',
+    eye_color: 'red',
+    birth_year: '33BBY',
+    gender: 'n/a',
+  },
+  {
+    name: 'Darth Vader',
+    height: '202',
+    mass: '136',
+    hair_color: 'none',
+    skin_color: 'white',
+    eye_color: 'yellow',
+    birth_year: '41.9BBY',
+    gender: 'male',
+  },
+  {
+    name: 'Leia Organa',
+    height: '150',
+    mass: '49',
+    hair_color: 'brown',
+    skin_color: 'light',
+    eye_color: 'brown',
+    birth_year: '19BBY',
+    gender: 'female',
+  },
+  {
+    name: 'Pex Kylar',
+    height: '180',
+    mass: '190',
+    hair_color: 'orange',
+    skin_color: 'brown',
+    eye_color: 'none',
+    birth_year: '27BBY',
+    gender: 'n/a',
+  },
+];
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
-  return (arr.length === 0) ? ('') : (arr.filter(char => char.mass > 77).map(charObj => charObj.name).join(' - '));
+  return (arr.length === 0) ? '': arr
+    .filter((char) => char.mass > 77)
+    .map((charObj) => charObj.name)
+    .join(' - ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +110,7 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
-  return arr.sort( (a,b) => a[property] > b[property] ? 1 : -1);
+  return arr.sort((a, b) => (a[property] > b[property] ? 1 : -1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,19 +153,17 @@ const detectTicTacToeWin = (board) => {
   // Solution code here...
 
   for (let i = 0; i < board.length; i++) {
-    if (tripleMatch([board[i][0], board[i][1], board[i][2]]) ||
-        tripleMatch([board[0][i], board[1][i], board[2][i]])) {
+    if (tripleMatch([board[i][0], board[i][1], board[i][2]]) || tripleMatch([board[0][i], board[1][i], board[2][i]])) {
       return true;
     }
   }
-  return tripleMatch([board[0][0], board[1][1], board[2][2]]) ||
-         tripleMatch([board[0][2], board[1][1], board[2][0]]);
+  return tripleMatch([board[0][0], board[1][1], board[2][2]]) || tripleMatch([board[0][2], board[1][1], board[2][0]]);
 };
 
 // checks if three values in an array are the same
 function tripleMatch(values) {
   if (values.includes('')) return false;
-  return (values[0] === values[1]) && (values[1] === values[2]);
+  return values[0] === values[1] && values[1] === values[2];
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -177,7 +180,7 @@ Run your tests from the console: jest challenge-14.test.js
 describe('Testing challenge 1', () => {
   test('It should convert each word to title case', () => {
     const words = ['apple', 'banana', 'MacGyver'];
-    expect(toTitleCase(words)).toStrictEqual(['Apple','Banana','MacGyver']);
+    expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver']);
 
     expect(toTitleCase([])).toStrictEqual([]);
   });
@@ -192,36 +195,36 @@ describe('Testing challenge 2', () => {
 
 describe('Testing challenge 3', () => {
   test('It should sort items by a price', () => {
-
-    expect(sortBy('price', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
-    ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15},
-      {name: 'Sweatshirt', price: 45},
+    expect(
+      sortBy('price', [
+        { name: 'Sweatshirt', price: 45 },
+        { name: 'Bookmark', price: 2.5 },
+        { name: 'Tote bag', price: 15 },
+      ])
+    ).toStrictEqual([
+      { name: 'Bookmark', price: 2.5 },
+      { name: 'Tote bag', price: 15 },
+      { name: 'Sweatshirt', price: 45 },
     ]);
-
   });
 
   test('It should sort items by name', () => {
-
-    expect(sortBy('name', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
-    ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Tote bag', price: 15},
+    expect(
+      sortBy('name', [
+        { name: 'Sweatshirt', price: 45 },
+        { name: 'Bookmark', price: 2.5 },
+        { name: 'Tote bag', price: 15 },
+      ])
+    ).toStrictEqual([
+      { name: 'Bookmark', price: 2.5 },
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Tote bag', price: 15 },
     ]);
   });
 });
 
 describe('Testing challenge 4', () => {
   test('It should check if url is https', () => {
-
     expect(isSecure('http://www.insecure.com')).toBe(false);
     expect(isSecure('https://secure.com')).toBe(true);
     expect(isSecure('https:/missingslash.org')).toBe(false);

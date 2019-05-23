@@ -10,11 +10,11 @@ Then, write a function named speaker that takes in a string and a callback funct
 
 const greeting = (word) => {
   return word.toUpperCase();
-}
+};
 
 const speaker = (message, callback) => {
   return callback(message);
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -35,9 +35,9 @@ Return the modified array.
 const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, callback) => {
-  for (let i = 0; i < times; i++) callback(arr,num);
+  for (let i = 0; i < times; i++) callback(arr, num);
   return arr;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -53,14 +53,14 @@ Return the modified array.
 
 const removeOne = (num, arr) => {
   if (num % 3 === 2) arr.pop();
-}
+};
 
 const removeElements = (arr, callback) => {
   for (let i = 0; i < arr.length; i++) {
     callback(arr[i], arr);
   }
   return arr;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -71,7 +71,7 @@ Write a function named removeWithForEach that produces the same output as challe
 const removeWithForEach = (arr, callback) => {
   arr.forEach((value) => callback(value, arr));
   return arr;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -88,7 +88,7 @@ const removeWithAnon = (arr) => {
     if (value % 3 === 2) arr.pop();
   });
   return arr;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -113,7 +113,7 @@ const createList = (availableItems) => {
     if (element.available) list.push(element.name);
   });
   return list;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -132,8 +132,8 @@ Return the resulting output array.
 const fizzbuzz = (arr) => {
   let outputArray = [];
   arr.forEach((element) => {
-    let three = (element % 3 === 0);
-    let five = (element % 5 === 0);
+    let three = element % 3 === 0;
+    let five = element % 5 === 0;
     if (three && five) {
       outputArray.push('Fizz Buzz');
     } else if (three) {
@@ -145,7 +145,7 @@ const fizzbuzz = (arr) => {
     }
   });
   return outputArray;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -193,7 +193,13 @@ describe('Testing challenge 5', () => {
 });
 
 describe('Testing challenge 6', () => {
-  const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
+  const inventory = [
+    { name: 'apples', available: true },
+    { name: 'pears', available: true },
+    { name: 'oranges', available: false },
+    { name: 'bananas', available: true },
+    { name: 'blueberries', available: false },
+  ];
 
   test('It should only add the available items to the list', () => {
     expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
@@ -205,7 +211,24 @@ describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
-    expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
+    expect(fizzbuzz(inputs)).toStrictEqual([
+      1,
+      2,
+      'Fizz',
+      4,
+      'Buzz',
+      'Fizz',
+      7,
+      8,
+      'Fizz',
+      'Buzz',
+      11,
+      'Fizz',
+      13,
+      14,
+      'Fizz Buzz',
+      16,
+    ]);
     expect(fizzbuzz(inputs).length).toStrictEqual(16);
   });
 });

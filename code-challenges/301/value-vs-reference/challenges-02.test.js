@@ -1,6 +1,5 @@
 'use strict';
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -10,7 +9,7 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 const appendTheEnd = (str) => {
   return str + ' The end.';
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -27,7 +26,7 @@ console.log(a) prints [1, 2, 3, 1]
 
 const appendFirstToLast = (arr) => {
   arr.push(arr[0]);
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -46,7 +45,7 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 
 const addBirthYearProperty = (obj, year) => {
   obj.yearBorn = year;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -62,8 +61,8 @@ console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
 const setStatusAsAuthor = (people) => {
-  people.forEach( (person) => person.isAuthor = true);
-}
+  people.forEach((person) => (person.isAuthor = true));
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -81,8 +80,8 @@ console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
 const append = (arr1, arr2) => {
-  arr2.forEach( (num) => arr1.push(num));
-}
+  arr2.forEach((num) => arr1.push(num));
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS

@@ -6,7 +6,7 @@ CHALLENGE 1
 Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, highest to smallest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBackwards = arr => {
+const sortBackwards = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => b - a);
 };
@@ -26,7 +26,7 @@ let wordCompare = (a, b) => {
   return 0;
 };
 
-const alphabetize = arr => {
+const alphabetize = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => wordCompare(a, b));
 };
@@ -37,7 +37,7 @@ CHALLENGE 3
 Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortByLength = arr => {
+const sortByLength = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => a.length - b.length);
 };
@@ -50,7 +50,7 @@ Write a function named alphabetizeBetter that takes in an array of strings and r
 For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetizeBetter = arr => {
+const alphabetizeBetter = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => {
     if (a.toLowerCase() > b.toLowerCase()) return 1;
@@ -72,7 +72,7 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = arr => {
+const sortByPrice = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => a.price - b.price);
 };
@@ -85,7 +85,7 @@ Write a function named sortNumbersByLength that takes in an array of numbers and
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = arr => {
+const sortNumbersByLength = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => a.toString().length - b.toString().length);
 };
@@ -105,10 +105,10 @@ function Person(firstName, lastName, age) {
 const people = [
   new Person('Wes', 'Washington', 25),
   new Person('Casey', 'Codefellow', 38),
-  new Person('Stan', 'Seattle', 67)
+  new Person('Stan', 'Seattle', 67),
 ];
 
-const sortPeople = arr => {
+const sortPeople = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => wordCompare(a.lastName, b.lastName));
 };
@@ -123,7 +123,7 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = arr => {
+const sortPeopleBetter = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => {
     if (a.lastName === b.lastName) {
@@ -153,7 +153,7 @@ const meetings = [
   new Meeting('Tuesday', '1145', '1315'),
   new Meeting('Wednesday', '0930', '1000'),
   new Meeting('Monday', '0900', '0945'),
-  new Meeting('Friday', '1200', '1345')
+  new Meeting('Friday', '1200', '1345'),
 ];
 
 // used by challenges 9 and 10
@@ -162,10 +162,10 @@ const weekDays = {
   Tuesday: 2,
   Wednesday: 3,
   Thursday: 4,
-  Friday: 5
+  Friday: 5,
 };
 
-const sortMeetingsByDay = arr => {
+const sortMeetingsByDay = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => weekDays[a.dayOfWeek] - weekDays[b.dayOfWeek]);
 };
@@ -180,7 +180,7 @@ Sort the meetings in the order that they start. If two meetings start at the sam
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
-const sortSchedule = arr => {
+const sortSchedule = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => {
     // same day
@@ -225,14 +225,13 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should sort strings alphabetically', () => {
-    expect(
-      alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])
-    ).toStrictEqual(['Alphabet', 'Zebra', 'alphabet', 'carrot']);
-    expect(alphabetize(['alphabet', 'Alphabet', 'carrot'])).toStrictEqual([
+    expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([
       'Alphabet',
+      'Zebra',
       'alphabet',
-      'carrot'
+      'carrot',
     ]);
+    expect(alphabetize(['alphabet', 'Alphabet', 'carrot'])).toStrictEqual(['Alphabet', 'alphabet', 'carrot']);
     expect(alphabetize([])).toStrictEqual([]);
   });
 });
@@ -241,9 +240,7 @@ describe('Testing challenge 3', () => {
   test('It should sort strings by length', () => {
     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
     expect(ans.slice(0, 2)).toStrictEqual(['Zebra', 'carrot']);
-    expect(ans.slice(2, 4)).toEqual(
-      expect.arrayContaining(['Alphabet', 'alphabet'])
-    );
+    expect(ans.slice(2, 4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
     expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
     expect(sortByLength(['a'])).toStrictEqual(['a']);
     expect(sortByLength([])).toStrictEqual([]);
@@ -252,13 +249,14 @@ describe('Testing challenge 3', () => {
 
 describe('Testing challenge 4', () => {
   test('It should alphabetize without regard to capitalization', () => {
-    expect(
-      alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])
-    ).toStrictEqual(['alert', 'Alice', 'apple', 'Average']);
+    expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([
+      'alert',
+      'Alice',
+      'apple',
+      'Average',
+    ]);
     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-    expect(ans.slice(0, 2)).toEqual(
-      expect.arrayContaining(['Alphabet', 'alphabet'])
-    );
+    expect(ans.slice(0, 2)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
     expect(ans.slice(2)).toStrictEqual(['carrot', 'Zebra']);
   });
 });
@@ -269,38 +267,23 @@ describe('Testing challenge 5', () => {
       sortByPrice([
         { name: 'Sweatshirt', price: 45 },
         { name: 'Bookmark', price: 2.5 },
-        { name: 'Tote bag', price: 15 }
+        { name: 'Tote bag', price: 15 },
       ])
     ).toStrictEqual([
       { name: 'Bookmark', price: 2.5 },
       { name: 'Tote bag', price: 15 },
-      { name: 'Sweatshirt', price: 45 }
+      { name: 'Sweatshirt', price: 45 },
     ]);
-    expect(sortByPrice([{ price: 12 }, { price: 10 }])).toStrictEqual([
-      { price: 10 },
-      { price: 12 }
-    ]);
+    expect(sortByPrice([{ price: 12 }, { price: 10 }])).toStrictEqual([{ price: 10 }, { price: 12 }]);
     expect(sortByPrice([])).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 6', () => {
   test('It should sort numbers by their length', () => {
-    expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([
-      1,
-      10,
-      2.8,
-      -47.75
-    ]);
-    expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([
-      1,
-      100,
-      2.82,
-      -47.75
-    ]);
-    expect(sortNumbersByLength([1, 2, 3])).toEqual(
-      expect.arrayContaining([1, 2, 3])
-    );
+    expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
+    expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
+    expect(sortNumbersByLength([1, 2, 3])).toEqual(expect.arrayContaining([1, 2, 3]));
   });
 });
 
@@ -309,11 +292,12 @@ describe('Testing challenge 7', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
       new Person('Stan', 'Seattle', 67),
-      new Person('Wes', 'Washington', 25)
+      new Person('Wes', 'Washington', 25),
     ]);
-    expect(
-      sortPeople([{ lastName: 'banana' }, { lastName: 'apple' }])
-    ).toStrictEqual([{ lastName: 'apple' }, { lastName: 'banana' }]);
+    expect(sortPeople([{ lastName: 'banana' }, { lastName: 'apple' }])).toStrictEqual([
+      { lastName: 'apple' },
+      { lastName: 'banana' },
+    ]);
   });
 });
 
@@ -324,24 +308,18 @@ describe('Testing challenge 8', () => {
       new Person('Casey', 'Codefellows', 37),
       new Person('Charlie', 'Codefellows', 21),
       new Person('Charles', 'Codefellows', 29),
-      new Person('Carol', 'Codefellow', 88)
+      new Person('Carol', 'Codefellow', 88),
     ];
     expect(sortPeopleBetter(family)).toStrictEqual([
       new Person('Carol', 'Codefellow', 88),
       new Person('Casey', 'Codefellows', 37),
       new Person('Casey', 'Codefellows', 55),
       new Person('Charles', 'Codefellows', 29),
-      new Person('Charlie', 'Codefellows', 21)
+      new Person('Charlie', 'Codefellows', 21),
     ]);
     expect(
-      sortPeopleBetter([
-        { firstName: 'andrew', lastName: 'apple' },
-        { firstName: 'andre', lastName: 'apple' }
-      ])
-    ).toStrictEqual([
-      { firstName: 'andre', lastName: 'apple' },
-      { firstName: 'andrew', lastName: 'apple' }
-    ]);
+      sortPeopleBetter([{ firstName: 'andrew', lastName: 'apple' }, { firstName: 'andre', lastName: 'apple' }])
+    ).toStrictEqual([{ firstName: 'andre', lastName: 'apple' }, { firstName: 'andrew', lastName: 'apple' }]);
   });
 });
 
@@ -349,23 +327,13 @@ describe('Testing challenge 9', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0, 2)).toEqual(
-      expect.arrayContaining([
-        new Meeting('Monday', '0900', '0945'),
-        new Meeting('Monday', '0900', '1000')
-      ])
+      expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')])
     );
-    expect(sortedMeetings[2]).toStrictEqual(
-      new Meeting('Tuesday', '1145', '1315')
-    );
+    expect(sortedMeetings[2]).toStrictEqual(new Meeting('Tuesday', '1145', '1315'));
     expect(sortedMeetings.slice(3, 5)).toEqual(
-      expect.arrayContaining([
-        new Meeting('Wednesday', '0930', '1000'),
-        new Meeting('Wednesday', '1300', '1500')
-      ])
+      expect.arrayContaining([new Meeting('Wednesday', '0930', '1000'), new Meeting('Wednesday', '1300', '1500')])
     );
-    expect(sortedMeetings[5]).toStrictEqual(
-      new Meeting('Friday', '1200', '1345')
-    );
+    expect(sortedMeetings[5]).toStrictEqual(new Meeting('Friday', '1200', '1345'));
   });
 });
 
@@ -377,7 +345,7 @@ describe('Testing challenge 10', () => {
       new Meeting('Tuesday', '1145', '1315'),
       new Meeting('Wednesday', '0930', '1000'),
       new Meeting('Wednesday', '1300', '1500'),
-      new Meeting('Friday', '1200', '1345')
+      new Meeting('Friday', '1200', '1345'),
     ]);
   });
 });
