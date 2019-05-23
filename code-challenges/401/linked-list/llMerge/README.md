@@ -10,9 +10,12 @@ Due to the restriction of O(1) space complexity, went with a solution that does 
 
 The algorithm used takes the head pointer from the first passed in list and adds the nodes from the other list in every other spot, this process insures O(1) space complexity since we are not making a new linked list.
 
+Time: O(n)
+Space: O(1)
+
 ## Solution
 
-![Whiteboard Image](./assets/linked-list-merge.jpeg)
+![Whiteboard Image](./assets/linked-list-merge.jpg)
 
 ~~~~javascript
 function mergeLists(listOne, listTwo) {
