@@ -12,8 +12,31 @@ The algorithm used takes the head pointer from the first passed in list and adds
 
 ## Solution
 
-![Whiteboard Image](./assets/linked-list-zip-merge.jpeg)
+![Whiteboard Image](./assets/linked-list-merge.jpeg)
 
 ~~~~javascript
+function mergeLists(listOne, listTwo) {
+  // no lists given
+  if (!listOne && !listTwo) return null;
 
+  // if one of the lists is empty/not passed, return the other head reference
+  if (!listOne || !listOne.length) return listTwo.head;
+  if (!listTwo || !listTwo.length) return listOne.head;
+
+  let currentOne = listOne.head;
+  let currentTwo = listTwo.head;
+
+  while (currentOne && currentTwo) {
+    let nextOne = currentOne.next;
+    let nextTwo = currentTwo.next;
+
+    currentOne.next = currentTwo;
+    currentTwo.next = nextOne || currentTwo.next;
+
+    currentOne = nextOne;
+    currentTwo = nextTwo;
+  }
+
+  return listOne.head;
+}
 ~~~~
