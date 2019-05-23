@@ -49,7 +49,10 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
-  return str.split('').filter((char,idx) => idx%2).join('');
+  return str
+    .split('')
+    .filter((char, idx) => idx % 2)
+    .join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +167,7 @@ describe('Testing challenge 1', () => {
   test('It should return the first letter of each element of the array', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
-    expect(firstLetters(words)).toStrictEqual(['a','b','c']);
+    expect(firstLetters(words)).toStrictEqual(['a', 'b', 'c']);
     expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual(['a', 'b', 'c', 'd']);
     expect(firstLetters([])).toStrictEqual([]);
   });
@@ -233,25 +236,39 @@ describe('Testing challenge 8', () => {
     const roster = [
       ['Michelle', 'Allie', 'Brook TESTING'],
       ['Brook Riggio', 'hey look it\'s Brook', 'Jennifer'],
-      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio'],
     ];
 
     expect(unenrollBrook(roster)).toStrictEqual([
       ['Michelle', 'Allie'],
       ['Jennifer'],
-      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio'],
     ]);
-    expect(unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])).toStrictEqual([['person'], [], ['person', 'person']]);
+    expect(unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])).toStrictEqual([
+      ['person'],
+      [],
+      ['person', 'person'],
+    ]);
     expect(unenrollBrook([])).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 9', () => {
   test('It should sort events by the day on which they happen', () => {
-    const events = ['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7', 'in the club on a Tuesday', 'Thursday Night Code', 'Saturday Night Fever'];
+    const events = [
+      'Dancing on Mondays and Tuesdays',
+      'Meet the inventors! Monday, August 7',
+      'in the club on a Tuesday',
+      'Thursday Night Code',
+      'Saturday Night Fever',
+    ];
     const sortedEvents = sortByDay(events);
-    expect(sortedEvents[0]).toEqual(expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7']));
-    expect(sortedEvents[1]).toEqual(expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'in the club on a Tuesday']));
+    expect(sortedEvents[0]).toEqual(
+      expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7'])
+    );
+    expect(sortedEvents[1]).toEqual(
+      expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'in the club on a Tuesday'])
+    );
     expect(sortedEvents[2]).toStrictEqual([]);
     expect(sortedEvents[3]).toStrictEqual(['Thursday Night Code']);
     expect(sortedEvents[4]).toStrictEqual([]);
