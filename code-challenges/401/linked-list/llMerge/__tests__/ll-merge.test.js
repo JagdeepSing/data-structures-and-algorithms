@@ -5,6 +5,20 @@ const merge = require('../ll-merge.js');
 
 describe('Linked List Zipper Merge', () => {
 
+  it('no parameters passed', () => {
+    expect(merge()).toBeNull();
+  });
+
+  it('only one list passed in', () => {
+    let list = new LinkedList();
+    list.append(1);
+    list.append(2);
+
+    let head = merge(list);
+    expect(head.value).toEqual(1);
+    expect(head.next.value).toEqual(2);
+  });
+
   it('first list in the passed lists is empty.', () => {
     let listOne = new LinkedList();
     let listTwo = new LinkedList();
@@ -33,6 +47,10 @@ describe('Linked List Zipper Merge', () => {
     expect(head.next.value).toEqual(2);
     expect(head.next.next.value).toEqual(3);
     expect(head.next.next.next).toBeNull();
+  });
+
+  it('Both lists empty', () => {
+    expect(merge(new LinkedList(), new LinkedList())).toBeNull();
   });
 
   it('lists of equal size', () => {

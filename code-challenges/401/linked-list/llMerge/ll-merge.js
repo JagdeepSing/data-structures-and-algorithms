@@ -9,9 +9,12 @@ module.exports = mergeLists;
  * @param {LinkedList} listTwo 
  */
 function mergeLists(listOne, listTwo) {
-  // if one of the lists is empty, return the other head reference
-  if (!listOne.length) return listTwo.head;
-  if (!listTwo.length) return listOne.head;
+  // no lists given
+  if (!listOne && !listTwo) return null;
+
+  // if one of the lists is empty/not passed, return the other head reference
+  if (!listOne || !listOne.length) return listTwo.head;
+  if (!listTwo || !listTwo.length) return listOne.head;
 
   let currentOne = listOne.head;
   let currentTwo = listTwo.head;
