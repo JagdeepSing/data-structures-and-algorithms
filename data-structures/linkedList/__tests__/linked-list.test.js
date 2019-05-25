@@ -19,7 +19,7 @@ describe('Linked List creation and insertion behaves correctly', () => {
     list.insert(2);
     list.insert(3);
     
-    expect(list.head.value).toEqual(1);
+    expect(list.head.value).toEqual(3);
   });
 
   it('includes method true for list containing value, false if not', () => {
@@ -42,9 +42,9 @@ describe('Linked List creation and insertion behaves correctly', () => {
     list.insert(3);
 
     list = list.print();
-    expect(list[0]).toEqual(1);
+    expect(list[0]).toEqual(3);
     expect(list[1]).toEqual(2);
-    expect(list[2]).toEqual(3);
+    expect(list[2]).toEqual(1);
 
   });
 });
@@ -62,12 +62,12 @@ describe('Linked List insertions behave correctly', () => {
     list.insert(3);
     list.insert(4);
 
-    expect(list.head.value).toEqual(1);
-    expect(list.head.next.value).toEqual(2);
-    expect(list.head.next.next.value).toEqual(3);
-    expect(list.head.next.next.next.value).toEqual(4);
+    expect(list.head.value).toEqual(4);
+    expect(list.head.next.value).toEqual(3);
+    expect(list.head.next.next.value).toEqual(2);
+    expect(list.head.next.next.next.value).toEqual(1);
 
-    expect(list.tail.value).toEqual(4);
+    expect(list.tail.value).toEqual(1);
     expect(list.tail.next).toEqual(null);
 
     expect(list.length).toEqual(4);

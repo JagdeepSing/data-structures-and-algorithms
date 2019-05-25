@@ -13,26 +13,22 @@ class LinkedList {
   }
 
   /**
-   * Inserts passed in value into the list
+   * Inserts passed in value into the list at the beginning
    *
    * @param {*} value value to insert into the list
    * @throws {Error} simple string message letting end user know that an error occurred
    */
   insert(value) {
-    try {
-      if (!this.head && !this.tail) {
-        this.head = new Node(value, null);
-        this.tail = this.head;
-      } else {
-        this.tail.next = new Node(value, null);
-        this.tail = this.tail.next;
-      }
-      this.length++;
-    } catch(err) {
-      throw new Error('Error inserting value to list, please verify value was passed in correctly.');
+    if (!value && value !== 0) throw new Error('Invalid input.');
+    let newHead = new Node(value, this.head);
+    // if list is empty (inserting first value into list)
+    if (!this.head && !this.tail) {
+      this.tail = newHead;
     }
+    this.head = newHead;
+    this.length++;
   }
-
+  
   /**
    * Checks if linked list contains passed in value
    *
