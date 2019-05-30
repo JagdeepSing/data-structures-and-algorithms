@@ -33,9 +33,9 @@ class Stack {
    */
   pop() {
     let result = this.top;
-    this.top = this.top.next;
+    if (this.top) this.top = this.top.next;
     result && this.length--;
-    return result.value || null;
+    return result ? result.value : null;
   }
 
   /**
