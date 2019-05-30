@@ -18,7 +18,7 @@ class AnimalShelter {
    * @throws {TypeError} shelter only accepts dogs or cats
    */
   enqueue(animal) {
-    if (!animal.type || (animal.type !== 'dog' && animal.type !== 'cat')) {
+    if (!animal || !animal.type || (animal.type !== 'dog' && animal.type !== 'cat')) {
       throw new TypeError(`wrong shelter, we don't accept ${animal.type}s`);
     }
     if (animal.type === 'dog') {

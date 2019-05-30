@@ -12,7 +12,10 @@ Implement the following methods:
 
 ## Approach & Efficiency
 
+Used two queues, one for dogs and one for cats. Also add a num property to each dog/cat animal object before inserting into the queue in order to track which animal has been at the shelter the longest regardless of animal type.
 
+`enqueue(animal)` and `dequeue(pref)` both have time and space complexity of **O(1)** since both methods take the same amount of time and space regardless of input.
 
 ## Solution
-<!-- Embedded whiteboard image -->
+
+![whiteboard image](assets/whiteboard.jpg)

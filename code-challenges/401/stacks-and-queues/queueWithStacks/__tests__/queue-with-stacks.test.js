@@ -41,19 +41,4 @@ describe('Queue', () => {
     
     expect(q.dequeue()).toBeNull();
   });
-  
-  // it('peek into a queue, seeing expected value', () => {
-  //   let q = new Queue();
-  //   expect(q.length).toEqual(0);
-  //   q.enqueue(3);
-  //   q.enqueue(4);
-  //   q.enqueue(5);
-
-  //   expect(q.peek()).toEqual(3);
-  //   expect(q.peek()).toEqual(3);
-  //   expect(q.dequeue()).toEqual(3);
-
-  //   expect(q.peek()).toEqual(4);
-  //   expect(q.peek()).toEqual(4);
-  // });
 });
