@@ -8,7 +8,7 @@ class AnimalShelter {
     this.cats = new Queue();
     this.count = 0;
   }
-
+  
   /**
    * Adds animal to shelter if of type 'dog' or 'cat'
    * If of some other type, return an exception.
@@ -30,7 +30,7 @@ class AnimalShelter {
     }
     return this.dogs.length + this.cats.length;
   }
-
+  
   /**
    * Removes most senior animal of passed in preference
    * If preference is empty string, returns most senior animal out of both cats and dogs
