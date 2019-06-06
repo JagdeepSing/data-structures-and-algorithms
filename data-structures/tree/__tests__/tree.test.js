@@ -65,8 +65,6 @@ describe('Tree', () => {
     it('return a collection from a pre-order traversal', () => {
       let expected = ['D', 'B', 'A', 'C', 'F', 'E'];
       let returned = tree.preOrder();
-      console.log('preOrder', returned);
-      // A B D 
       returned.forEach((val, idx) => {
         expect(val).toEqual(expected[idx]);
       });
@@ -75,8 +73,6 @@ describe('Tree', () => {
     it('return a collection from a in-order traversal', () => {
       let expected = ['A', 'B', 'C', 'D', 'E', 'F'];
       let returned = tree.inOrder();
-      console.log('inOrder', returned);
-
       returned.forEach((val, idx) => {
         expect(val).toEqual(expected[idx]);
       });
@@ -85,7 +81,6 @@ describe('Tree', () => {
     it('return a collection from a post-order traversal', () => {
       let expected = ['A', 'B', 'C', 'E', 'F', 'D'];
       let returned = tree.postOrder();
-      console.log('postOrder', returned);
       returned.forEach((val, idx) => {
         expect(val).toEqual(expected[idx]);
       });
@@ -119,4 +114,6 @@ describe('Tree', () => {
       expect(tree.findMaximumValue(tree.root)).toBe(45);
     });
   });
+  
 });
+
