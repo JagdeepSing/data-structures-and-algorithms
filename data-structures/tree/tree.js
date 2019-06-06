@@ -1,5 +1,7 @@
 'use strict';
 
+const Queue = require('../stacksAndQueues/lib/stacks-and-queues.js').Queue;
+
 class Node {
   constructor(value, left=null, right=null) {
     this.value = value;
@@ -10,19 +12,47 @@ class Node {
 
 class BinaryTree {
   constructor(value = null) {
-    (value === null) ? 
-      (this.root = null) : 
+    (value === null) ?
+      (this.root = null) :
       (this.root = new Node(value));
   }
-
+    
   /**
-   * Returns an array of the values in Binary Tree 
-   * preOrdered: (root, leftChild, rightChild) 
-   * 
-   * @param {Object} node 
-   * @param {Array} values 
-   * @returns {Array} array containing values in binary tree (preOrder traversal)
-   */
+     * Gets max value in tree by checking every node in tree
+     *
+     * @param node, starting node for search.
+     * @returns {null|*} the max value in tree, null if empty tree
+     */
+  findMaximumValue( node = this.root ) {
+    if (node === null) return null;
+    const childrenQueue = new Queue();
+    childrenQueue.enqueue(node);
+    let max = node.value;
+        
+    while ( childrenQueue.peek() !== null ) {
+      let currentNode = childrenQueue.dequeue();
+            
+      if (currentNode.value > max) {
+        max = currentNode.value;
+      }
+      if (currentNode.left !== null) {
+        childrenQueue.enqueue(currentNode.left);
+      }
+      if (currentNode.right !== null) {
+        childrenQueue.enqueue(currentNode.right);
+      }
+    }
+    return max;
+  }
+    
+  /**
+     * Returns an array of the values in Binary Tree
+     * preOrdered: (root, leftChild, rightChild)
+     *
+     * @param {Object} node
+     * @param {Array} values
+     * @returns {Array} array containing values in binary tree (preOrder traversal)
+     */
   preOrder( node = this.root, values = [] ) {
     if (node) {
       values.push(node.value);
@@ -31,15 +61,15 @@ class BinaryTree {
     }
     return values;
   }
-
+    
   /**
-   * Returns an array of the values in Binary Tree 
-   * inOrdered: (leftChild, root, rightChild) 
-   * 
-   * @param {Object} node 
-   * @param {Array} values 
-   * @returns {Array} array containing values in binary tree (inOrder traversal)
-   */
+     * Returns an array of the values in Binary Tree
+     * inOrdered: (leftChild, root, rightChild)
+     *
+     * @param {Object} node
+     * @param {Array} values
+     * @returns {Array} array containing values in binary tree (inOrder traversal)
+     */
   inOrder( node = this.root, values = [] ) {
     if (node) {
       node.left && this.inOrder(node.left, values);
@@ -48,15 +78,15 @@ class BinaryTree {
     }
     return values;
   }
-
+    
   /**
-   * Returns an array of the values in Binary Tree 
-   * postOrder: (leftChild, rightChild, root) 
-   * 
-   * @param {Object} node 
-   * @param {Array} values 
-   * @returns {Array} array containing values in binary tree (postOrder traversal)
-   */
+     * Returns an array of the values in Binary Tree
+     * postOrder: (leftChild, rightChild, root)
+     *
+     * @param {Object} node
+     * @param {Array} values
+     * @returns {Array} array containing values in binary tree (postOrder traversal)
+     */
   postOrder( node = this.root, values = [] ) {
     if (node) {
       node.left && this.inOrder(node.left, values);
@@ -69,12 +99,12 @@ class BinaryTree {
 
 class BinarySearchTree extends BinaryTree {
   add(value) {
-    if (!this.root) { 
-      this.root = new Node(value); 
+    if (!this.root) {
+      this.root = new Node(value);
     } else {
       _addHelper(this.root);
     }
-
+        
     function _addHelper(current) {
       if (current.value > value) {
         (!current.left ? current.left = new Node(value) : _addHelper(current.left));
@@ -83,7 +113,7 @@ class BinarySearchTree extends BinaryTree {
       }
     }
   }
-
+    
   contains(value, current = this.root) {
     if (current === null || value === undefined) {
       return false;

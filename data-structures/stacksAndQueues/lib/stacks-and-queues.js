@@ -86,7 +86,7 @@ class Queue {
    */
   dequeue() { 
     let result = this.front;
-    if (this.front === this.tail) this.tail = null; 
+    if (this.front === this.back) this.back = null;
     if (this.front) this.front = this.front.next;
     result && this.length--;
     return result ? result.value : null;

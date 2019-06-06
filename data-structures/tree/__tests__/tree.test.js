@@ -3,6 +3,7 @@
 const tree = require('../tree.js');
 const Node = tree.Node;
 const BinarySearchTree = tree.BinarySearchTree;
+const BinaryTree = tree.BinaryTree;
 
 describe('Tree', () => {
   it('instantiate an empty tree', () => {
@@ -88,6 +89,34 @@ describe('Tree', () => {
       returned.forEach((val, idx) => {
         expect(val).toEqual(expected[idx]);
       });
+    });
+  });
+  
+  describe('findMaximumValue(root) method', () => {
+    it('returns null for empty tree', () => {
+      let tree = new BinaryTree();
+      expect(tree.findMaximumValue(tree.root)).toBeNull();
+    });
+    
+    it('returns max value in binary tree', () => {
+      let tree = new BinaryTree();
+      
+      expect(tree.findMaximumValue(tree.root)).toBeNull();
+      
+      tree.root = new Node(5);
+      expect(tree.findMaximumValue(tree.root)).toBe(5);
+      
+      tree.root.left = new Node(8);
+      expect(tree.findMaximumValue(tree.root)).toBe(8);
+      
+      tree.root.right = new Node(13);
+      expect(tree.findMaximumValue(tree.root)).toBe(13);
+      
+      tree.root.left.left = new Node(45);
+      expect(tree.findMaximumValue(tree.root)).toBe(45);
+      
+      tree.root.left.right = new Node(23);
+      expect(tree.findMaximumValue(tree.root)).toBe(45);
     });
   });
 });
