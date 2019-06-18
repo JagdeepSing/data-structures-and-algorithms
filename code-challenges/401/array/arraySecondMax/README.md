@@ -21,6 +21,8 @@ Pro:
 
 Con:
 
+- Can't think of any, this is the best you can get with an unsorted array.
+
 ### Method B
 1. Find the max value in array. 
 2. Delete the value from the array.
