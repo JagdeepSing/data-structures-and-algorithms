@@ -2,9 +2,9 @@
 
 class HashTable {
   constructor(length) {
-    this.LENGTH = length || 100;
-    this.data = new Array(this.LENGTH);
-    for (let i = 0; i < this.LENGTH; i++) {
+    this.length = length && length > 1 ? length : 100;
+    this.data = new Array(this.length);
+    for (let i = 0; i < this.length; i++) {
       this.data[i] = {};
     }
   }
@@ -32,7 +32,7 @@ class HashTable {
     if (typeof key === 'string') {
       key = stringSum(key);
     }
-    return Math.floor(key * 599) % (this.LENGTH - 1);
+    return Math.floor(key * 599) % (this.length - 1);
   }
 
   /**
@@ -72,7 +72,8 @@ class HashTable {
    */
   add(key, value) {
     const index = this._hash(key);
-    return Object.assign(this.data[index], { [key]: value })[key];
+    Object.assign(this.data[index], { [key]: value });
+    return this.data[index][key];
   }
 }
 
