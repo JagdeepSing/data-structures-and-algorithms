@@ -37,4 +37,4 @@ Space: `O(H)`,
 
 ## Whiteboard
 
-![Whiteboard Image]()
+![Whiteboard Image](./assets/whiteboard.jpeg)
