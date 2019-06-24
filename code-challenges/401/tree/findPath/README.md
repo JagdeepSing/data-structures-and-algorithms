@@ -36,3 +36,5 @@ Space: `O(H)`,
 - also if path is path is from root to lowest leaf, linked list will be of size H
 
 ## Whiteboard
+
+![Whiteboard Image]()
