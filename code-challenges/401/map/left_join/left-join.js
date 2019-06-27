@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = (mapOne, mapTwo) => {
+  if (!mapOne) return null;
   const resultObj = {};
   mapOne.forEach((value, key) => {
-    const secondValue = mapTwo[key] || null;
-    resultObj[key] = [value, secondValue];
+    resultObj[key] = [value, mapTwo.get(key) || null];
   });
   return resultObj;
 };
