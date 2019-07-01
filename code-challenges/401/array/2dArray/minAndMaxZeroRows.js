@@ -20,6 +20,12 @@ function minAndMaxZeroRows(matrix) {
   return {min: minIdx, max: maxIdx};
 }
 
+/**
+ *
+ *
+ * @param {*} array
+ * @returns
+ */
 function _zerosInArray(array) {
   let left = 0;
   let right = array.length-1;
@@ -27,7 +33,7 @@ function _zerosInArray(array) {
   if (array[left] === 1) return 0;
   if (array[right] === 0) return array.length;
 
-  let mid = Math.floor((right + left) / 2);
+  let mid = Math.ceil((right + left) / 2);
 
   while ( left < right && mid > 0) {
     if (array[mid - 1] === 0 && array[mid] === 1) {
@@ -37,20 +43,7 @@ function _zerosInArray(array) {
     } else {
       right = mid;      
     }
-    mid = Math.floor((right + left) / 2);
+    mid = Math.ceil((right + left) / 2);
   }
   return 0;
 }
-
-let matrix = [
-  [0,0,0,0,0],
-  [0,0,0,0,1],
-  [0,0,0,1,1],
-  [0,0,1,1,1],
-  [0,1,1,1,1],
-  [1,1,1,1,1],
-];
-console.log(_zerosInArray(matrix[0]));
-
-
-

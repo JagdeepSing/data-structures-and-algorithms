@@ -10,7 +10,7 @@ describe('Min and Max Zero Rows in 2D array', () => {
       [0,0,0,1,1],
     ];
 
-    expect(minAndMaxZeroRows(matrix).min).toEqual(0);
-    expect(minAndMaxZeroRows(matrix).max).toEqual(2);
+    expect(minAndMaxZeroRows(matrix).min).toEqual(2);
+    expect(minAndMaxZeroRows(matrix).max).toEqual(0);
   });
 });
