@@ -7,8 +7,12 @@
     "doc": "docs"
   },
   "dependencies": {
+    "eslint": "^5.6.1",
     "jest": "^24.8.0",
-    "eslint": "^5.6.1"
+    "js-priority-queue": "^0.1.5",
+    "queue-fifo": "^0.2.6",
+    "singly-linked-list": "^1.4.0",
+    "stack-lifo": "^0.1.6"
   },
   "devDependencies": {},
   "scripts": {
