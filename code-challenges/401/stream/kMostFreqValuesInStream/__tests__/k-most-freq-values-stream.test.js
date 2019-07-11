@@ -1,6 +1,6 @@
 'use strict';
 
-const getMaxCount = require('./k-most-freq-values-stream');
+const getMaxCount = require('../k-most-freq-values-stream');
 
 class Stream {
   constructor(string) {
