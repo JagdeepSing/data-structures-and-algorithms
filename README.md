@@ -35,14 +35,29 @@ Collection of all data structures and algorithm challenges completed from beginn
 
 ## Course 401 
 
-### Challenges
+#### String
 
 #### Array
 
   * [Reverse](/code-challenges/401/array/arrayReverse/array-reverse.js)
   * [Shift](code-challenges/401/array/arrayShift)
   * [Binary Search](/code-challenges/401/array/arrayBinarySearch)
+  * [Second Max](/code-challenges/401/array/arraySecondMax)
+  * [Chess Check Checker](/code-challenges/401/array/2dArray/chessCheckChecker)
+  * [Min and Max Number of Zeros in Sorted Rows](/code-challenges/401/array/2dArray/minAndMaxZeroRows)
 
-### Data Structure Implementations
+#### Linked-List
 
-  * [Singly Linked List](/data-structures/linkedList)
+  * [Singly Linked List Implementation](/data-structures/linkedList)
+  * [Merge Linked Lists](/code-challenges/401/linked-list/llMerge)
+
+#### Stacks + Queues
+
+  * []()
+
+#### Map / Hashtable
+#### Stream
+#### Trees
+#### Graph
+
+#### Sorting
