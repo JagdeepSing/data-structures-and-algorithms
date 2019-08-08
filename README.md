@@ -37,6 +37,8 @@ Collection of all data structures and algorithm challenges completed from beginn
 
 #### String
 
+  * [All Permutations of a String](/code-challenges/401/string/all-permutations.js)
+
 #### Array
 
   * [Reverse](/code-challenges/401/array/arrayReverse/array-reverse.js)
@@ -53,11 +55,30 @@ Collection of all data structures and algorithm challenges completed from beginn
 
 #### Stacks + Queues
 
-  * []()
+  * [FIFO Animal Shelter](/code-challenges/401/stacks-and-queues/fifoAnimalShelter)
+  * [Queue Implementation w/ Stacks](/code-challenges/401/stacks-and-queues/queueWithStacks)
+  * [Stack + Queue Implementation (Linked-List)](/data-structures/stacksAndQueues)
 
 #### Map / Hashtable
+
+  * [Implementation](/data-structures/hashmap)
+  * [Left Join Two Map Objects](/code-challenges/401/map/left_join)
+  * [Two Sum](/code-challenges/401/map/twoSum)
+
 #### Stream
+
+  * [K Most Frequent Values in Stream](/code-challenges/401/stream/kMostFreqValuesInStream)
+
 #### Trees
+
+  * [Even Count](/code-challenges/401/tree/evenCount)
+  * [Even Count in Subtree](/code-challenges/401/tree/evenCountSubtree)
+  * [Depth of Value](/code-challenges/401/tree/findDepthOfValue)
+  * [Find Value Node](/code-challenges/401/tree/findNode)
+  * [Find Path](/code-challenges/401/tree/findPath)
+  * [FizzBuzz Tree](/code-challenges/401/tree/fizzBuzzTree)
+  * [Tree Intersection](/code-challenges/401/tree/tree-intersection)
+
 #### Graph
 
 #### Sorting
