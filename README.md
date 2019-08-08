@@ -1,6 +1,6 @@
 # Data Structures & Algorithms
 
-This repo stores all data structure and algorithm challenges completed while attending Code Fellows bootcamp in Seattle. All code is written in JavaScript with a TDD approach.
+Collection of all data structures and algorithm challenges completed from beginning of course at code fellows to now.
 
 ## Course 301 Challenges
 
