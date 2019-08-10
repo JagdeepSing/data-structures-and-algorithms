@@ -13,6 +13,7 @@ const discoverIsland = function(arr, i, j, traversedLand) {
     discoverIsland(arr, i, j + 1, traversedLand);
   }
 };
+
 const numIslands = function(grid) {
   let islands = 0;
   const traversedLand = new Set();
