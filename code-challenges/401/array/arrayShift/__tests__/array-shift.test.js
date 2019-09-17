@@ -11,8 +11,11 @@ describe('Proper insertShiftArray behavior', () => {
 
   it('inserting into even length array', () => {
     let result = insertShiftArray([0,1,3,4], 2);
-    expect(result[2]).toEqual(2);
+    let expected = [0,1,2,3,4];
     expect(result.length).toEqual(5);
+    for (let i = 0; i < result.length; i++) {
+      expect(result[i]).toEqual(expected[i]);
+    }
   });
 
   it('inserting into odd length array', () => {
